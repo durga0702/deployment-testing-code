@@ -1,5 +1,4 @@
-
-name: Angular GitHub CI/CD
+name: Angular GitHub pages CI/CD
 on:
   push:
     branches:
@@ -10,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -39,13 +38,7 @@ jobs:
           npm ci
       - name: Build
         run: |
-          npm run build 
-      - name: Lint
-        run: |
-          npm run lint
-      - name: Test
-        run: |
-          npm run test 
+          npm run build
       - name: Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
